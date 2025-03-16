@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { MdKeyboardArrowDown } from "react-icons/md";
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null); // Store the index of the open item
 
@@ -41,13 +41,9 @@ const Faq = () => {
                 className="font-semibold text-[1.5rem] cursor-pointer p-0 flex justify-center items-center duration-700"
                 onClick={() => toggleIndex(index)}
               >
-                <span
-                  className={`transition-transform origin-center duration-300 ${
+                <MdKeyboardArrowDown className={`transition-transform origin-center duration-700 ${
                     activeIndex === index ? "-rotate-180" : "rotate-0"
-                  }`}
-                >
-                  ⌄
-                </span>
+                  }`} />
               </span>
             </div>
             <p className={activeIndex === index ? "block mt-2" : "hidden"}>

@@ -19,15 +19,15 @@ const Why = () => {
           },
     ]
   return (
-    <div className='px-[10rem] pt-[10rem] flex flex-col justify-center items-center'>
-        <h1 className='text-4xl italic font-serif'> Why <span className='text-[#A44CFF]'>Join OnlyFame ?</span></h1>
+    <div className='px-[10rem] pt-[10rem] flex flex-col gap-10 justify-center items-center mt-14  '>
+       <h1 className='text-4xl italic font-serif sticky top-[10rem]  '> Why <span className='text-[#A44CFF]  '>Join OnlyFame ?</span></h1>
         <div>
-            <div>
+            <div className=' flex flex-col gap-5 z-0'>
                 {data.map((items,count)=>
-                <div key={count} className='flex justify-around items-center '>
-                    <div>
-                        <h1>{items.head}</h1>
-                        <p>{items.para}</p>
+                <div key={count} className={`flex ${count==0?'bg-[#FBF6F4] z-10 sticky top-[15rem] ':count===1?'bg-[#F1F9F8] z-20 sticky top-[15rem] ':"bg-[#EFEFF9] z-30 stick top-0"} }  items-center justify-between w-3xl  p-10 rounded-3xl `}>
+                    <div className='flex flex-col gap-10  '>
+                        <h1 className='text-3xl  font-serif italic'>{items.head}</h1>
+                        <p className=' font-light' >{items.para}</p>
                     </div>
                     <img src={items.img} alt="" />
                 </div>
