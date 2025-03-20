@@ -5,17 +5,17 @@ const Why = () => {
         {
           head:"Connect directly with Top Brands & Agencies",
           para:"HashFame connects you directly with verified marketing teams from brands & agencies.",
-          img:"src/assets/images/brandAgencies.svg",
+          img:"src/assets/images/createrpage_Images/brandAgencies.svg",
         },
         {
             head:"Stand Out.Expand your Network.",
             para:"Boost your visibility with tools that help you showcase your best work to decision-makers.",
-            img:"src/assets/images/expandNetwork.svg",
+            img:"src/assets/images/createrpage_Images/expandNetwork.svg",
           },
           {
             head:"Discover the best-fit opportunities",
             para:"Gain access to exclusive campaigns and trending opportunities, matching your niche & prices!",
-            img:"src/assets/images/discoverOpportunities.svg",
+            img:"src/assets/images/createrpage_Images/discoverOpportunities.svg",
           },
     ]
   return (

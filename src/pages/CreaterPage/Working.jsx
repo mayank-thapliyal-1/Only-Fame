@@ -50,7 +50,7 @@ const Working = () => {
         autoPlay
         muted
         loop
-        src="src/assets/images/video.mp4"
+        src="src/assets/images/createrpage_Images/video.mp4"
       ></video>
     </div>
   );
