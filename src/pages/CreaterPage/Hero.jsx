@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 const Hero = () => {
   const ob = [
     {
-      logo: "src/assets/images/brands-logos/monk-e-logo.svg",
+      logo: "../../images/brands-logos/monk-e-logo.svg",
     },
     {
       logo: "src/assets/images/brands-logos/adidas_logo.svg",
