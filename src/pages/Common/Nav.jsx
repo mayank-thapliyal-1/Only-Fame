@@ -37,14 +37,17 @@ const Nav = () => {
           </div>{" "}
           Live campaigns !
         </span>
+        <div className=" flex gap-4">
         <span className="border-2 px-7 py-1 rounded-4xl border-[#e4e4e5] cursor-pointer font-bold hover:shadow-2xl " onClick={handleref}>
           {" "}
           Refer{" "}
         </span>
         <span className="text-[#5811A6] box-border border-[0.5px]  font-semibold hover:border-[2px] hover:border-[#bea1dd] bg-[#F4E8FF]  px-7 py-1 rounded-4xl cursor-pointer" onClick={handlelogin}>
           {" "}
-          Login{" "}
+          Sign Up{" "}
         </span>
+        </div>
+      
       </div>
       <Refer invisble={visible} onClose={()=>setVisible(false)} />
       <Login invisible={login} onClose={()=>setLogin(false)} />

@@ -34,7 +34,7 @@ const Hero = () => {
       logo: "src/assets/images/brands-logos/swiggy_logo.svg",
     },
     {
-      logo: "src/assets/imagesbrands-logos//TCS_logo.svg",
+      logo: "src/assets/images/brands-logos/TCS_logo.svg",
     },
   ];
   const [visible, setVisible] = useState(false);
@@ -61,9 +61,17 @@ const Hero = () => {
             Get a Invite <span className="font-extralight text-2xl">→</span>
           </button>
         </div>
-        <img className="h-3/12 w-1/2 object-cover" src="src/assets/images/createrpage_Images/createpagepic1.jpeg" alt="" />
+        <img
+          className="h-3/12 w-1/2 object-cover"
+          src="src/assets/images/createrpage_Images/createpagepic1.jpeg"
+          alt=""
+        />
       </div>
-      <Marquee direction="left" pauseOnHover={true} gradient={true}>
+  
+      <Marquee
+        direction="left"
+        gradient={true}
+      >
         <div className=" flex  gap-10 animate-marquee px-5  ">
           {ob.map((items, count) => (
             <img key={count} src={items.logo} />

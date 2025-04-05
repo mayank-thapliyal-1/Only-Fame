@@ -1,85 +1,69 @@
+import { signInWithEmailAndPassword ,createUserWithEmailAndPassword} from "firebase/auth";
+import { collection, query, where, getDocs, addDoc, } from "firebase/firestore";
+import {auth, db } from "../../Config/firbase";
 import React, { useState } from "react";
-import {
-  auth,
-  RecaptchaVerifier,
-  signInWithPhoneNumber,
-  PhoneAuthProvider,
-  signInWithCredential,
-} from "../../Config/firbase";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ invisible, onClose }) => {
-  const [phone, setPhone] = useState("");
-  const [Otp, setOtp] = useState("");
-  const [visible, setVisible] = useState(true);
-  const [verificationId, setVerificationId] = useState(null);
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [SignUp, setSignUp] = useState(true);
+  const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
+  const [comp,setComp]= useState('');
+ const navigate = useNavigate();
   if (!invisible) return null;
-
-  const handleClose = (e) => {
-    if (e.target.id === "wrapper") onClose();
-  };
-
-  const SetupCaptcha = () => {
-    if (!window.recaptchaVerifier) {
-      window.recaptchaVerifier = new RecaptchaVerifier(
-        auth,
-        "recaptcha-container",
-        {
-          size: "invisible",
-          callback: (response) => {
-            console.log("Captcha solved", response);
-          },
+  // const handleClose = () => {
+  //   onClose();
+  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if(SignUp){
+      const userRef = collection(db, "users");
+      const e = query(userRef, where("email", "==", email));
+      const u = query(userRef, where("username", "==", username));
+      const emailSnap = await getDocs(e);
+      const usernameSnap = await getDocs(u);
+        if (!emailSnap.empty) {
+          setError("Email already in use!");
+          return;
         }
-      );
-    }
-  };
-  const handlePhoneChange = (e) => {
-    let input = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
-  
-    if (input.startsWith("91")) {
-      input = input.slice(2); // Remove extra "91" if user types it manually
-    }
-    if (input.length > 10) {
-      input = input.slice(0, 10); // Limit input to 10 digits
-    }
-    setPhone("+91" + input);
-  };
-  
-  const sendOTP = async (event) => {
-    event.preventDefault()
-    SetupCaptcha();
-    setVisible(!visible);
-    console.log("running");
-    try {
-      const confirmation = await signInWithPhoneNumber(
-        auth,
-        phone,
-        window.recaptchaVerifier // ✅ Corrected variable name
-      );
-      setVerificationId(confirmation.verificationId);
-      console.log("OTP is Sent");
-    } catch (error) {
-      console.error("Error sending OTP", error);
-    }
-  };
 
-  const verifyOTP = async (event) => {
-    event.preventDefault()
-    if (!verificationId) return console.log("Enter the OTP first");
-    console.log("runed");
-    try {
-      const credential = PhoneAuthProvider.credential(verificationId, Otp);
-      await signInWithCredential(auth, credential);
-      console.log("User signed in successfully");
-    } catch (error) {
-      console.error("Error during OTP verification", error);
+        if (!usernameSnap.empty) {
+          setError("Username already taken!");
+          return;
+        }
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        const user = userCredential.user;
+        // Add user to Firestore
+        await addDoc(userRef, {
+          uid: user.uid,
+          username,
+          email,
+          photoUrl:"src/assets/images/common_img/profile-pic.webp"
+        });
+        navigate('/profile');
+        setError("");
+        setComp("User created successfulluy!");}
+        else{
+          await signInWithEmailAndPassword(auth,email,password);
+          setError('');
+          navigate('/');
+        }
+      }
+     catch (err) {
+      setError(err.message);
     }
   };
-
   return (
     <div
       className=" fixed inset-0 z-50 bg-opacity-50 backdrop-blur-sm flex justify-center items-center"
-      onClick={handleClose}
+      // onClick={handleClose}
       id="wrapper"
     >
       <div className="border-1 border-gray-300 bg-white h-[40rem] w-[50rem] flex items-center justify-between px-14 gap-20 rounded-4xl">
@@ -104,61 +88,65 @@ const Login = ({ invisible, onClose }) => {
         <div className="flex flex-col gap-7 items-start">
           <div className="flex flex-col gap-2">
             <h1 className="text-4xl font-serif italic">
-              Invite Your Friends to{" "}
+              {" "}
+              {SignUp ? "Sign UP Now in " : "Sign In Now to"}
               <span className="text-[#a44cff]"> OnlyFame!</span>
             </h1>
             <p className="font-extralight text-xl">
-              "Invite influencers & brands to OnlyFame and grow your network!"
+              "Join now to OnlyFame and became the part of this Group !"
             </p>
           </div>
-          <form
-            className={`${
-              visible ? "flex" : "hidden"
-            }  flex-col gap-6 items-start p-0`}
-          >
+          <form onSubmit={handleSubmit} className={"flex flex-col gap-6 items-start p-0"}>
             <input
-              type="tel"
+              type="email"
               required
-              className="bg-gray-300 p-4 rounded-3xl w-[20rem]"
-              placeholder="+91 9330101018"
-              value={phone}
-              onChange={handlePhoneChange}
-            />
-            <button
-              className="bg-gradient-to-b from-[#8f53cf] to-[#650bc5] rounded-4xl text-white text-xl font-extralight h-[3rem] w-[9rem]"
-              onClick={sendOTP}
-            >
-              Send OTP
-            </button>
-          </form>
-          <form
-            className={` ${
-              visible ? "hidden" : "flex"
-            } flex-col gap-6 items-start p-0 `}
-          >
-            <input
-              type="tel"
-              required
-              className="bg-gray-300 p-4 rounded-3xl w-[20rem]"
-              placeholder="+91 9330101018"
-              value={phone}
-              onChange={handlePhoneChange}
+              className="bg-gray-300 p-4 rounded-3xl w-[20rem] hover:scale-105 duration-500 "
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="text"
               required
-              value={Otp}
-              onChange={(e) => setOtp(e.target.value)}
-              className="bg-gray-300 p-4 rounded-3xl w-[20rem]"
-              placeholder="OTP"
+              className={`bg-gray-300 p-4 ${
+                SignUp ? "block" : "hidden"
+              } rounded-3xl w-[20rem] hover:scale-105 duration-500 `}
+              placeholder="UserName"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="password"
+              required
+              className="bg-gray-300 p-4 rounded-3xl w-[20rem] hover:scale-105 duration-500 "
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button
-              className="bg-gradient-to-b from-[#8f53cf] to-[#650bc5] rounded-4xl text-white text-xl font-extralight h-[3rem] w-[9rem]"
-              onClick={verifyOTP}
+              className="bg-gradient-to-b from-[#8f53cf] to-[#650bc5] rounded-4xl text-white text-xl font-extralight h-[3rem] w-[9rem] hover:scale-105 duration-500 delay-200 box-border border-4 hover:border-[#a37ccc]"
             >
-              Refer
+              {SignUp ? "Sign Up" : "Sign In"}{" "}
             </button>
-            <div id="recaptcha-container"></div>
+            <div className="flex gap-3 w-full">
+              <p>
+                {SignUp
+                  ? "Already have an account ?"
+                  : "Create a Account Now !"}
+              </p>{" "}
+              <span
+                className="text-blue-400 hover:scale-105 cursor-pointer"
+                  onClick={(event) => {
+                  event.preventDefault();
+                  setSignUp((prev) => !prev);
+                }}
+              >
+                {" "}
+                {SignUp ? "SignIn" : "SignUp"}{" "}
+              </span>
+            </div>
+            <p className="text-red-600">{error}</p>
+            <p className="text-green-600">{comp}</p>
           </form>
         </div>
       </div>

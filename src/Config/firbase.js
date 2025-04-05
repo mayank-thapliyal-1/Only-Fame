@@ -1,19 +1,21 @@
 
 import { initializeApp } from "firebase/app";
-import {getAuth,RecaptchaVerifier,signInWithPhoneNumber,PhoneAuthProvider,signInWithCredential} from "firebase/auth";
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
  const key = import.meta.env.VITE_API_KEY;
 const firebaseConfig = {
-  apiKey:key,
-  authDomain: "dummy-71b29.firebaseapp.com",
-  projectId: "dummy-71b29",
-  storageBucket: "dummy-71b29.firebasestorage.app",
-  messagingSenderId: "968344676841",
-  appId: "1:968344676841:web:326d7958d835743ae7c378"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: "onlyfame-5f840.firebaseapp.com",
+  projectId: "onlyfame-5f840",
+  storageBucket: "onlyfame-5f840.firebasestorage.app",
+  messagingSenderId: "321294639712",
+  appId: "1:321294639712:web:c0acd0b02a101f7ab09905",
+  measurementId: "G-1RV36ZMT7T"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-auth.useDeviceLanguage();
-export {auth , RecaptchaVerifier, signInWithPhoneNumber, PhoneAuthProvider,
-    signInWithCredential} ;
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+    // firebase.js
+

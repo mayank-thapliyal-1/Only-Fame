@@ -2,12 +2,44 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 
 const Hero = () => {
+  const object = [
+    {
+      profile: "src/assets/images/homepage_images/IsaKhan.svg",
+      name: "Isa Khan",
+      insta: "825kk",
+      yt: "825k",
+    },
+    {
+      profile: "src/assets/images/homepage_images/DevanshKamboj.svg",
+      name: "Devansh Kamboj",
+      insta: "128k",
+      yt: "128k",
+    },
+    {
+      profile: "src/assets/images/homepage_images/KumariSuprava.svg",
+      name: "Kumari Suprava",
+      insta: "152.8k",
+      yt: "152.8k",
+    },
+    {
+      profile: "src/assets/images/homepage_images/VaishnaviPrakash.svg",
+      name: "Vaishnavi PraKash",
+      insta: "152.8k",
+      yt: "152.8k",
+    },
+    {
+      profile: "src/assets/images/homepage_images/kangan.svg",
+      name: "Kangan",
+      insta: "268k",
+      yt: "268k",
+    },
+  ];
   return (
-    <div>
-      <div className="px-[11rem] pt-[11rem] flex justify-between items-start">
-        <div>
-          <div>
-            <h1 className=" text-5xl font-light font-mono">
+    <div className="flex flex-col gap-20">
+      <div className="px-[13rem]  pt-[11rem] flex justify-between items-start">
+        <div className=" flex flex-col gap-16"> 
+          <div className=" flex flex-col gap-4 pt-6">
+            <h1 className=" text-5xl font-light font-mono font-serif">
               <span className="font-bold uppercase">Connect</span> with{" "}
               <span className="font-bold uppercase">influencers</span> in{" "}
               <span className="font-bold font-stretch-ultra-expanded">
@@ -15,12 +47,12 @@ const Hero = () => {
               </span>{" "}
               not Hours
             </h1>
-            <p>
+            <p className=" font-extralight text-gray-400">
               Where professional-creators, vetted-brands & genuine talent
               managers meet: to build incredible partnerships.
             </p>
           </div>
-          <div>
+          <div className="flex gap-10">
             <button className=" rounded-4xl    font-bold text-center  px-10 py-5 hover:gap-3 border-[2px]  box-border border-[#DBDBDE]   hover:border-[3px] transition-all delay-100 duration-300 ">
               For Creators →
             </button>
@@ -30,29 +62,71 @@ const Hero = () => {
           </div>
         </div>
         <img
-          className=" h-[30rem] w-[40rem] object-fill "
-          src="src/assets/images/common_img/image1.jpeg"
-          alt=""
+          className=" h-[25rem] w-[30rem] object-fill "
+          src="src/assets/images/common_img/image1.jpg"
+          alt="hero-page image"
         />
       </div>
-      <Marquee>
-        <div className=" flex  gap-5 items-center px-6 py-3 border-[0.5px] rounded-3xl">
-          <img src="src/assets/images/homepage_images/IsaKhan.svg" alt="" />
-          <div >
-            <h1>Isa Khan</h1>
-            <div>
-              <span>
-                <img src="src/assets/images/homepage_images/instagramIcon.svg" alt="" />
-                <p>85.8k</p>
-                </span><span>
-                  <img src="src/assets/images/homepage_images/vedioIcon.svg" alt="" />
-                  <p>825.8k</p>
-                </span>
+      <div>
+        <Marquee speed={110} className=" p-2  flex hover:delay-500 ">
+          {object.map((items, i) => (
+            <div
+              key={i}
+              className=" flex  gap-5 items-center px-6 py-3 rounded-3xl shadow-md cursor-pointer hover:bg-gray-200 border-1 border-[#ECEDF1] mx-4"
+            >
+              <img src={items.profile} className="h-14" alt="profile pic" />
+              <div className=" flex flex-col gap-2 ">
+                <h1> {items.name} </h1>
+                <div className=" flex gap-3  ">
+                  <span className="flex border-r-2 pr-3 border-gray-400 gap-2">
+                    <img
+                      src="src/assets/images/homepage_images/instagramIcon.svg"
+                      alt=" insta logo"
+                    />
+                    <p>{items.insta}</p>
+                  </span>
+                  <span className="flex gap-2">
+                    <img
+                      src="src/assets/images/homepage_images/vedioIcon.svg"
+                      alt="yt logo"
+                    />
+                    <p>{items.yt}</p>
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-    
-      </Marquee>
+          ))}
+        </Marquee>
+        <Marquee  direction="right" className=" p-2  hover:duration-1000 flex ">
+          {object.map((items, i) => (
+            <div
+              key={i}
+              className=" flex  gap-5 items-center hover:delay-500 cursor-pointer hover:bg-gray-200 px-6 py-3 rounded-3xl shadow-md border-1 border-[#ECEDF1] mx-4"
+            >
+              <img src={items.profile} className="h-14" alt="profile pic" />
+              <div className=" flex flex-col gap-2 ">
+                <h1> {items.name} </h1>
+                <div className=" flex gap-3  ">
+                  <span className="flex border-r-2 pr-3 border-gray-400 gap-2">
+                    <img
+                      src="src/assets/images/homepage_images/instagramIcon.svg"
+                      alt=" insta logo"
+                    />
+                    <p>{items.insta}</p>
+                  </span>
+                  <span className="flex gap-2">
+                    <img
+                      src="src/assets/images/homepage_images/vedioIcon.svg"
+                      alt="yt logo"
+                    />
+                    <p>{items.yt}</p>
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Marquee>
+      </div>
     </div>
   );
 };
