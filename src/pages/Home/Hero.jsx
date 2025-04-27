@@ -6,7 +6,7 @@ const Hero = () => {
     {
       profile: "src/assets/images/homepage_images/IsaKhan.svg",
       name: "Isa Khan",
-      insta: "825kk",
+      insta: "825k",
       yt: "825k",
     },
     {
@@ -39,7 +39,7 @@ const Hero = () => {
       <div className="px-[13rem]  pt-[11rem] flex justify-between items-start">
         <div className=" flex flex-col gap-16"> 
           <div className=" flex flex-col gap-4 pt-6">
-            <h1 className=" text-5xl font-light font-mono font-serif">
+            <h1 className=" text-5xl font-light font-mono ">
               <span className="font-bold uppercase">Connect</span> with{" "}
               <span className="font-bold uppercase">influencers</span> in{" "}
               <span className="font-bold font-stretch-ultra-expanded">

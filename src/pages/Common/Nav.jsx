@@ -7,6 +7,18 @@ const Nav = () => {
   const [size, setSize] = useState(5);
   const [visible,setVisible]= useState(false);
   const [login,setLogin] = useState(false);
+  const [signIn,setSignIn] = useState(false);
+  const [photoUrl,setPhotoUrl]=useState('');
+  useEffect(() => {
+    const userString = localStorage.getItem("user");
+    if (userString) {
+      const user = JSON.parse(userString);
+      if (user?.uid) {
+        setSignIn(true);
+        setPhotoUrl(user.photoUrl);
+      }
+    }
+  }, []);
   useEffect(() => {
     const interval = setInterval(() => {
       setSize((prev) => (prev == 15 ? 5 : prev + 1));
@@ -42,10 +54,12 @@ const Nav = () => {
           {" "}
           Refer{" "}
         </span>
-        <span className="text-[#5811A6] box-border border-[0.5px]  font-semibold hover:border-[2px] hover:border-[#bea1dd] bg-[#F4E8FF]  px-7 py-1 rounded-4xl cursor-pointer" onClick={handlelogin}>
+        {signIn?<img src={photoUrl} className="h-32 w-32 object-cover"/>: <span className="text-[#5811A6] box-border border-[0.5px]  font-semibold hover:border-[2px] hover:border-[#bea1dd] bg-[#F4E8FF]  px-7 py-1 rounded-4xl cursor-pointer" onClick={handlelogin}>
           {" "}
+          {}
           Sign Up{" "}
-        </span>
+        </span>}
+       
         </div>
       
       </div>

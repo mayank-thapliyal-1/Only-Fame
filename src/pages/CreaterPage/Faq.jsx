@@ -16,7 +16,7 @@ const Faq = () => {
     {
       question: "How is OnlyFame different from other existing Creator apps?",
       answer:
-        "HashFame connects you directly with a verified network of brands and agencies actively seeking influencers. Unlike registering with only one agency, expand your network, and get inbound requests for collabs from thousands of brands.",
+        "OnlyFame connects you directly with a verified network of brands and agencies actively seeking influencers. Unlike registering with only one agency, expand your network, and get inbound requests for collabs from thousands of brands.",
     },
     {
       question: "Is OnlyFame free for Creators?",

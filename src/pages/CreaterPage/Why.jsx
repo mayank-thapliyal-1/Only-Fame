@@ -4,7 +4,7 @@ const Why = () => {
     const data =[
         {
           head:"Connect directly with Top Brands & Agencies",
-          para:"HashFame connects you directly with verified marketing teams from brands & agencies.",
+          para:"OnlyFame connects you directly with verified marketing teams from brands & agencies.",
           img:"src/assets/images/createrpage_Images/brandAgencies.svg",
         },
         {
