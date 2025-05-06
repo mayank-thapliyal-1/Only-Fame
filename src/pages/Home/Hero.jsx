@@ -5,6 +5,9 @@ import DevanshKamboj from "../../assets/images/homepage_images/DevanshKamboj.svg
 import Suprava from "../../assets/images/homepage_images/KumariSuprava.svg"
 import Vaisnavi from "../../assets/images/homepage_images/VaishnaviPrakash.svg"
 import Kangan from "../../assets/images/homepage_images/kangan.svg"
+import Image from "../../assets/images/common_img/image1.jpg"
+import Instalogo from "../../assets/images/homepage_images/instagramIcon.svg"
+import YTLogo from "../../assets/images/homepage_images/vedioIcon.svg"
 const Hero = () => {
   const object = [
     {
@@ -67,7 +70,7 @@ const Hero = () => {
         </div>
         <img
           className=" h-[25rem] w-[30rem] object-fill "
-          src="src/assets/images/common_img/image1.jpg"
+          src={Image}
           alt="hero-page image"
         />
       </div>
@@ -84,14 +87,14 @@ const Hero = () => {
                 <div className=" flex gap-3  ">
                   <span className="flex border-r-2 pr-3 border-gray-400 gap-2">
                     <img
-                      src="src/assets/images/homepage_images/instagramIcon.svg"
+                      src={Instalogo}
                       alt=" insta logo"
                     />
                     <p>{items.insta}</p>
                   </span>
                   <span className="flex gap-2">
                     <img
-                      src="src/assets/images/homepage_images/vedioIcon.svg"
+                      src={YTLogo}
                       alt="yt logo"
                     />
                     <p>{items.yt}</p>
