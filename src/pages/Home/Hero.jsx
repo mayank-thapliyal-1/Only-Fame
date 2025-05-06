@@ -116,14 +116,14 @@ const Hero = () => {
                 <div className=" flex gap-3  ">
                   <span className="flex border-r-2 pr-3 border-gray-400 gap-2">
                     <img
-                      src="src/assets/images/homepage_images/instagramIcon.svg"
+                      src={Instalogo}
                       alt=" insta logo"
                     />
                     <p>{items.insta}</p>
                   </span>
                   <span className="flex gap-2">
                     <img
-                      src="src/assets/images/homepage_images/vedioIcon.svg"
+                      src={YTLogo}
                       alt="yt logo"
                     />
                     <p>{items.yt}</p>
