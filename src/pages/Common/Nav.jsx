@@ -37,7 +37,7 @@ const Nav = () => {
       <div className=" flex gap-16 items-center">
         <span className="cursor-pointer" onClick={()=>navigate("/creater-page")} > 👉🏻 For Creators</span>
         <span className="flex gap-3 justify-center items-center cursor-pointer ">
-          <div
+          {/* <div
             style={{
               height: `${size}px`,
               width: `${size}px`,
@@ -46,15 +46,18 @@ const Nav = () => {
             className={`  rounded-full flex justify-center items-center fixed mr-[9rem]  `}
           >
             <div className="h-[4px] w-[4px] bg-red-600 rounded-full "></div>
-          </div>{" "}
+          </div>{" "} */}
+          <div className=" relative left-4.5 h-3 w-3 border-1  border-red-500 animate-ping-slow  rounded-full "> </div>
+            <div className="bg-red-500  right-1 rounded-full h-2 w-2 relative"></div>
+         
           Live campaigns !
         </span>
-        <div className=" flex gap-4">
-        <span className="border-2 px-7 py-1 rounded-4xl border-[#e4e4e5] cursor-pointer font-bold hover:shadow-2xl " onClick={handleref}>
+        <div className=" flex gap-4 items-center">
+        <span className=" text-center border-2 px-7 py-1 h-fit rounded-4xl border-[#e4e4e5] cursor-pointer font-bold hover:shadow-2xl " onClick={handleref}>
           {" "}
           Refer{" "}
         </span>
-        {signIn?<img src={photoUrl} className="h-32 w-32 object-cover"/>: <span className="text-[#5811A6] box-border border-[0.5px]  font-semibold hover:border-[2px] hover:border-[#bea1dd] bg-[#F4E8FF]  px-7 py-1 rounded-4xl cursor-pointer" onClick={handlelogin}>
+        {signIn?<img src={photoUrl} className="h-14 w-14 rounded-full object-cover" onClick={()=>navigate("/profile")} />: <span className="text-[#5811A6] box-border border-[0.5px]  font-semibold hover:border-[2px] hover:border-[#bea1dd] bg-[#F4E8FF]  px-7 py-1 rounded-4xl cursor-pointer" onClick={handlelogin}>
           {" "}
           {}
           Sign Up{" "}

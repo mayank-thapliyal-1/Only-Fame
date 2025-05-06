@@ -58,7 +58,7 @@ const Login = ({ invisible, onClose }) => {
           photoUrl: "src/assets/images/common_img/profile-pic.webp",
         });
         setError("");
-        navigate("/profile");
+        navigate("/profile-data");
 
         setComp("User created successfulluy!");
       } else {
@@ -103,8 +103,8 @@ const Login = ({ invisible, onClose }) => {
       id="wrapper"
     >
       <div className="border-1 border-gray-300 bg-white h-[40rem] w-[50rem] flex items-center justify-between px-14 gap-20 rounded-4xl">
-        <button
-          className="absolute place-self-start right-[19rem] top-[4.5rem] hover:text-gray-600 hover:scale-110 text-3xl font-semibold"
+      <button
+          className=" font-sans absolute place-self-start right-[21rem] top-[6rem] p-2 px-4 hover:scale-110 text-2xl rounded-full hover:border-1 hover:border-slate-200  "
           onClick={onClose}
         >
           X
@@ -167,7 +167,7 @@ const Login = ({ invisible, onClose }) => {
                 className="text-2xl "
                 onClick={() => setVisible((perv) => !perv)}
               >
-                {visible ? <FaEye /> : <FaEyeSlash />}
+                {visible ? <FaEye className="text-muted" /> : <FaEyeSlash className="text-muted" />}
               </span>
             </span>
 
