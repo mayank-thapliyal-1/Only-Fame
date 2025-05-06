@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "../../assets/images/common_img/get-app-link.png"
+import logo from "../../assets/images/common_img/OnlyFame.png"
 const Refer = ({ invisble, onClose }) => {
   if (!invisble) return null;
   const handleClose = (e) => {
@@ -20,13 +22,13 @@ const Refer = ({ invisble, onClose }) => {
         <div className="flex flex-col gap-2 justify-center items-center">
           <img
             className=" h-[25rem] w-[30rem] p-0 object-contain"
-            src="src/assets/images/common_img/get-app-link.png"
-            alt=""
+            src={Image}
+            alt="get-app-image "
           />
           <img
             className="h-12 w-40 object-contain"
-            src="src/assets/images/common_img/OnlyFame.png"
-            alt=""
+            src={logo}
+            alt="OnlyFame"
           />
         </div>
         <div className="flex flex-col gap-7 items-start">

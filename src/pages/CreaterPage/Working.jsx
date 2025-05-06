@@ -1,5 +1,5 @@
 import React from "react";
-
+import Video1 from "../../assets/images/createrpage_Images/video.mp4"
 const Working = () => {
   const ob = [
     {
@@ -50,7 +50,7 @@ const Working = () => {
         autoPlay
         muted
         loop
-        src="src/assets/images/createrpage_Images/video.mp4"
+        src={Video1}
       ></video>
     </div>
   );

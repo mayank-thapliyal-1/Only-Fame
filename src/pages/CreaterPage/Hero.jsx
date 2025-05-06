@@ -1,40 +1,52 @@
 import React, { useState } from "react";
 import Refer from "../Common/Refer";
 import Marquee from "react-fast-marquee";
+import logo1 from "../../assets/images/brands-logos/monk-e-logo.svg";
+import logo2 from "../../assets/images/brands-logos/adidas_logo.svg";
+import logo3 from "../../assets/images/brands-logos/disney-hotstar_logo.svg";
+import logo4 from "../../assets/images/brands-logos/msl_logo.svg";
+import logo5 from "../../assets/images/brands-logos/nykaa_logo.svg";
+import logo6 from "../../assets/images/brands-logos/ogilvy_logo.svg";
+import logo7 from "../../assets/images/brands-logos/oppo_logo.svg";
+import logo8 from "../../assets/images/brands-logos/samsung_logo.svg";
+import logo9 from "../../assets/images/brands-logos/sugar_logo.svg";
+import logo10 from "../../assets/images/brands-logos/swiggy_logo.svg";
+import logo11 from "../../assets/images/brands-logos/TCS_logo.svg";
+import image1 from "../../assets/images/createrpage_Images/createpagepic1.jpeg"
 const Hero = () => {
   const ob = [
     {
-      logo: "src/assets/images/brands-logos/monk-e-logo.svg",
+      logo: `${logo1}`,
     },
     {
-      logo: "src/assets/images/brands-logos/adidas_logo.svg",
+      logo: `${logo2}`,
     },
     {
-      logo: "src/assets/images/brands-logos/disney-hotstar_logo.svg",
+      logo: `${logo3}`,
     },
     {
-      logo: "src/assets/images/brands-logos/msl_logo.svg",
+      logo: `${logo4}`,
     },
     {
-      logo: "src/assets/images/brands-logos/nykaa_logo.svg",
+      logo: `${logo5}`,
     },
     {
-      logo: "src/assets/images/brands-logos/ogilvy_logo.svg",
+      logo: `${logo6}`,
     },
     {
-      logo: "src/assets/images/brands-logos/oppo_logo.svg",
+      logo: `${logo7}`,
     },
     {
-      logo: "src/assets/images/brands-logos/samsung_logo.svg",
+      logo: `${logo8}`,
     },
     {
-      logo: "src/assets/images/brands-logos/sugar_logo.svg",
+      logo: `${logo9}`,
     },
     {
-      logo: "src/assets/images/brands-logos/swiggy_logo.svg",
+      logo: `${logo10}`,
     },
     {
-      logo: "src/assets/images/brands-logos/TCS_logo.svg",
+      logo: `${logo11}`,
     },
   ];
   const [visible, setVisible] = useState(false);
@@ -63,15 +75,12 @@ const Hero = () => {
         </div>
         <img
           className="h-3/12 w-1/2 object-cover"
-          src="src/assets/images/createrpage_Images/createpagepic1.jpeg"
+          src={image1}
           alt=""
         />
       </div>
-  
-      <Marquee
-        direction="left"
-        gradient={true}
-      >
+
+      <Marquee direction="left" gradient={true}>
         <div className=" flex  gap-10 animate-marquee px-5  ">
           {ob.map((items, count) => (
             <img key={count} src={items.logo} />

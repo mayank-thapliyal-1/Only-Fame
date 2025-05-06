@@ -15,7 +15,8 @@ import { auth, db } from "../../Config/firbase";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-
+import Image from "../../assets/images/common_img/get-app-link.png"
+import logo from "../../assets/images/common_img/OnlyFame.png"
 const Login = ({ invisible, onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -112,12 +113,12 @@ const Login = ({ invisible, onClose }) => {
         <div className="flex flex-col gap-2 justify-center items-center">
           <img
             className="h-[25rem] w-[30rem] p-0 object-contain"
-            src="src/assets/images/common_img/get-app-link.png"
+            src={Image}
             alt=""
           />
           <img
             className="h-12 w-40 object-contain"
-            src="src/assets/images/common_img/OnlyFame.png"
+            src={logo}
             alt=""
           />
         </div>

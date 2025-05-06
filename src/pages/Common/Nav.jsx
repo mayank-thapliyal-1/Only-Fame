@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Refer from "./Refer.jsx";
 import Login from "./Login.jsx";
+import logo from "../../assets/images/common_img/OnlyFame.png"
 import {  useNavigate } from "react-router-dom";
 const Nav = () => {
   const navigate = useNavigate()
@@ -33,20 +34,11 @@ const Nav = () => {
   }
   return (
     <nav className=" flex justify-around p-5 pt-10  w-full fixed items-center bg-white z-50">
-      <img className="  h-9  " src="src/assets/images/common_img/OnlyFame.png" alt="" onClick={()=>navigate("/")} />
+      <img className="  h-9  " src={logo} alt="logo" onClick={()=>navigate("/")} />
       <div className=" flex gap-16 items-center">
         <span className="cursor-pointer" onClick={()=>navigate("/creater-page")} > 👉🏻 For Creators</span>
         <span className="flex gap-3 justify-center items-center cursor-pointer ">
-          {/* <div
-            style={{
-              height: `${size}px`,
-              width: `${size}px`,
-              border: " 1px solid red",
-            }}
-            className={`  rounded-full flex justify-center items-center fixed mr-[9rem]  `}
-          >
-            <div className="h-[4px] w-[4px] bg-red-600 rounded-full "></div>
-          </div>{" "} */}
+
           <div className=" relative left-4.5 h-3 w-3 border-1  border-red-500 animate-ping-slow  rounded-full "> </div>
             <div className="bg-red-500  right-1 rounded-full h-2 w-2 relative"></div>
          

@@ -1,34 +1,38 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-
+import IsaKhan from "../../assets/images/homepage_images/IsaKhan.svg"
+import DevanshKamboj from "../../assets/images/homepage_images/DevanshKamboj.svg"
+import Suprava from "../../assets/images/homepage_images/KumariSuprava.svg"
+import Vaisnavi from "../../assets/images/homepage_images/VaishnaviPrakash.svg"
+import Kangan from "../../assets/images/homepage_images/kangan.svg"
 const Hero = () => {
   const object = [
     {
-      profile: "src/assets/images/homepage_images/IsaKhan.svg",
+      profile: `${IsaKhan}`,
       name: "Isa Khan",
       insta: "825k",
       yt: "825k",
     },
     {
-      profile: "src/assets/images/homepage_images/DevanshKamboj.svg",
+      profile:`${DevanshKamboj}`,
       name: "Devansh Kamboj",
       insta: "128k",
       yt: "128k",
     },
     {
-      profile: "src/assets/images/homepage_images/KumariSuprava.svg",
+      profile: `${Suprava}`,
       name: "Kumari Suprava",
       insta: "152.8k",
       yt: "152.8k",
     },
     {
-      profile: "src/assets/images/homepage_images/VaishnaviPrakash.svg",
+      profile:`${Vaisnavi}`,
       name: "Vaishnavi PraKash",
       insta: "152.8k",
       yt: "152.8k",
     },
     {
-      profile: "src/assets/images/homepage_images/kangan.svg",
+      profile: `${Kangan}`,
       name: "Kangan",
       insta: "268k",
       yt: "268k",

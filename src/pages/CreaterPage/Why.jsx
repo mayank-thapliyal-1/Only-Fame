@@ -1,21 +1,23 @@
 import React from 'react'
-
+import Image1 from "../../assets/images/createrpage_Images/brandAgencies.svg";
+import Image2 from "../../assets/images/createrpage_Images/expandNetwork.svg";
+import Image3 from "../../assets/images/createrpage_Images/discoverOpportunities.svg";
 const Why = () => {
     const data =[
         {
           head:"Connect directly with Top Brands & Agencies",
           para:"OnlyFame connects you directly with verified marketing teams from brands & agencies.",
-          img:"src/assets/images/createrpage_Images/brandAgencies.svg",
+          img:`${Image1}`,
         },
         {
             head:"Stand Out.Expand your Network.",
             para:"Boost your visibility with tools that help you showcase your best work to decision-makers.",
-            img:"src/assets/images/createrpage_Images/expandNetwork.svg",
+            img:`${Image2}`,
           },
           {
             head:"Discover the best-fit opportunities",
             para:"Gain access to exclusive campaigns and trending opportunities, matching your niche & prices!",
-            img:"src/assets/images/createrpage_Images/discoverOpportunities.svg",
+            img:`${Image3}`,
           },
     ]
   return (
